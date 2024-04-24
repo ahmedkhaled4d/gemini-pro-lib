@@ -6,10 +6,11 @@ import {
 } from "@google/generative-ai";
 import fs from "fs";
 import { Readable } from "stream";
+import { env } from "./env";
 
 // Get your API key from https://makersuite.google.com/app/apikey
 // Access your API key as an environment variable
-export const genAI = new GoogleGenerativeAI(process.env.API_KEY!);
+export const genAI = new GoogleGenerativeAI(env.API_KEY);
 
 // Converts local file information to a GoogleGenerativeAI.Part object
 export function fileToGenerativePart(path: string, mimeType: string) {
