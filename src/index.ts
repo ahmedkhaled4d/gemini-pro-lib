@@ -1,9 +1,9 @@
-import { simpleChat } from "./modules/chat/simpleChat";
+import { runSimpleContent } from "./modules/content/simpleContent";
 
 async function main() {
   try {
     console.log("Typescript gemini-pro Lib : API KEY");
-    await simpleChat();
+    await runSimpleContent();
   } catch (e) {
     console.error(e);
   }

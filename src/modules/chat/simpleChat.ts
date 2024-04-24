@@ -17,7 +17,7 @@
 
 import { genAI } from "../../utils/common";
 
-export async function simpleChat() {
+export async function runSimpleChat() {
   // For dialog language tasks (like chat), use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
