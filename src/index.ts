@@ -1,9 +1,9 @@
-import { runAdvancedChat } from "./modules/chat/advancedChat";
+import { runAdvancedText } from "./modules/content/advancedText";
 
 async function main() {
   try {
     console.log("Typescript gemini-pro Lib : API KEY");
-    await runAdvancedChat();
+    await runAdvancedText();
   } catch (e) {
     console.error(e);
   }

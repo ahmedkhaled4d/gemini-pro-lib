@@ -1,11 +1,11 @@
 import {
   ChatSession,
   CountTokensRequest,
+  EnhancedGenerateContentResponse,
   GenerativeModel,
   GoogleGenerativeAI,
 } from "@google/generative-ai";
 import fs from "fs";
-import { Readable } from "stream";
 import { env } from "./env";
 
 // Get your API key from https://makersuite.google.com/app/apikey
@@ -23,8 +23,11 @@ export function fileToGenerativePart(path: string, mimeType: string) {
 }
 
 // Prints chunks of generated text to the console as they become available
-export async function streamToStdout(stream: Readable) {
-  console.log("Streaming...\n");
+export async function streamToStdout(
+  stream: AsyncGenerator<EnhancedGenerateContentResponse>
+) {
+  console.log("\n ======= Start STREEM ========");
+
   for await (const chunk of stream) {
     // Get first candidate's current text chunk
     const chunkText = chunk.text();
@@ -32,12 +35,12 @@ export async function streamToStdout(stream: Readable) {
     process.stdout.write(chunkText);
   }
   // Print blank line
-  console.log("\n");
+  console.log("\n ======= END OF STREEM ========");
 }
 
 export async function displayTokenCount(
   model: GenerativeModel,
-  request: CountTokensRequest
+  request: CountTokensRequest | string
 ) {
   const { totalTokens } = await model.countTokens(request);
   console.log("Token count: ", totalTokens);

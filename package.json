@@ -1,5 +1,5 @@
 {
-  "name": "openai-gpt4-api",
+  "name": "gemini-pro",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.8.0",
     "ts-dotenv": "^0.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2"
   }
 }
